@@ -32,8 +32,8 @@ while True:
 			print (message) 
 		else: 
 			message = sys.stdin.readline() 
-			server.send(message) 
-			sys.stdout.write("<You>") 
-			sys.stdout.write(message) 
+			server.send(message.encode()) 
+			sys.stdout.write("<You> ") 
+			sys.stdout.write(str(message))
 			sys.stdout.flush() 
 server.close() 
