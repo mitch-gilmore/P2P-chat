@@ -2,11 +2,6 @@ let
   pkgs = import <nixpkgs> {};
 in pkgs.mkShell {
   packages = [
-    # (pkgs.python3.withPackages (python-pkgs: [
-    #   python-pkgs.numpy
-    #   python-pkgs.torch
-	  #   python-pkgs.torchvision2
-    # ]))
     pkgs.python3
     pkgs.poetry
     pkgs.python3Packages.venvShellHook
@@ -21,8 +16,8 @@ in pkgs.mkShell {
   postVenvCreation = ''
     unset SOURCE_DATE_EPOCH
     pip install -U pip setuptools wheel
-    pip install -r requirements.txt -r requirements-dev.txt
-    pip install -e .
+    pip install poetry
+    poetry install
     autoPatchelf ./venv
   '';
 
