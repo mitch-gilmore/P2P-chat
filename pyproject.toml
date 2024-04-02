@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "p2p-chat"
+name = "p2p_chat"
 version = "0.1.0"
 description = "A peer to peer chat for EC530"
 authors = ["Mitchell Gilmore <mgilm0re@bu.edu>"]
@@ -13,3 +13,6 @@ python = "^3.11"
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+p2p_chat = "p2p_chat.__main__:main"
